@@ -60,4 +60,27 @@ function getPlayerStats($playerName)
 
     return $stats;
 }
+
+function getTeamStandings()
+{
+    $query = "SELECT TeamName, COUNT(*) as wins ".
+                "FROM ".
+                "(SELECT Home as TeamName ".
+                "FROM schedule sc ".
+                "WHERE HomePts >  VisitorPts ".
+                "union all ".
+                "SELECT Visitor as TeamName ". 
+                "FROM schedule sc ".
+                "WHERE VisitorPts > HomePts) AS sched ".
+                "GROUP BY TeamName ".
+             "ORDER BY COUNT(*) DESC";
+           
+
+    $result = mysql_query($query);
+
+    while($row=mysql_fetch_array($result))
+        echo "$row[TeamName]  $row[wins]<br/>";
+    return $result;
+    
+}
 ?>

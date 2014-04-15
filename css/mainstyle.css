@@ -1,0 +1,58 @@
+div#input
+{
+   width: 400px; 
+}
+
+/* Colors
+    red:        #F5001D
+    yellow:     #FFCD00
+    blue:       #3016B0
+    dark red:   #9F0013
+    light blue  #402C84
+*/
+/*
+body
+{
+    background-color: #e2e2e2;
+}
+
+ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow:  hidden;
+    
+}
+a:link, a:visited
+{
+    display: block;
+    width: 192px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #3016B0;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+}
+
+
+#title
+{
+    margin: 0;
+    padding: 0;
+    background-color: #f00;
+    width: 800px;
+}
+
+a:hover, a:active
+{
+    background-color: #2f71de;
+}
+
+
+li
+{
+    float: left;
+}
+    */

@@ -5,14 +5,15 @@ include_once "dbhandler.php";
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <?php include "partial/loadlinks.html";?>
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script>
             $(document).ready(function () {
                 $("form").submit(function (e) {
                     e.preventDefault();
 
-                    $.get("ajax/getPlayerStats.php", $(this).serialize(),function(r){
-                        $("div").html(r);
+                    $.get("ajax/getplayerstats.php", $(this).serialize(),function(r){
+                        $("div#output").html(r);
                     });
                 });
             });
@@ -21,14 +22,25 @@ include_once "dbhandler.php";
         <title>Player Stats</title>
     </head>
     <body>
+        <div class="container">
+       <?php 
+            include "partial/navigation.html";
+        ?>
+        
         <form>
-            <label>Player Name: </label><input type="text" name="playername"/><br/>
-            <input type="submit" value="Get Stats"/>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Player Name"/>
+            </div>
+
+   
+            <input type="submit" class="btn btn-default" value ="Get Stats"/>
         </form>
         
         <!--div for output-->
-        <div>
+        <div id="output">
 
         </div>
+
+        </div><!--container-->
     </body>
 </html>
