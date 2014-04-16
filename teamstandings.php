@@ -10,7 +10,7 @@ include_once "dbhandler.php"
         <title></title>
     </head>
     <body>
-        <div class="container">
+   
         <?php 
             include "partial/navigation.html";
         ?>
@@ -27,6 +27,6 @@ include_once "dbhandler.php"
 
             ?>
         </div>
-            </div><!--container-->
+         
     </body>
 </html>

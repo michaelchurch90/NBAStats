@@ -2,7 +2,7 @@
     
 
 $username = "root";
-$password = "Sports11.";
+$password = "sports11.";
 $hostname= "localhost";
 $con = mysql_connect($hostname,$username,$password)
     or die("Unable to connect to MySQL");
@@ -29,17 +29,9 @@ function getTeamNames()
 function getSchedule($teamName)
 {
     
-    $query = sprintf("SELECT Date FROM schedule WHERE Visitor = '%1s' OR Home ='%1s'",mysql_real_escape_string($teamName),"");
+    $query = sprintf("SELECT * FROM schedule WHERE Visitor = '%s' OR Home ='%s' ORDER BY Date",mysql_real_escape_string($teamName),mysql_real_escape_string ($teamName));
     $result = mysql_query($query);
-    $schedule = array();
-
-    while($row = mysql_fetch_array($result))
-    {
-        array_push($schedule,$row['Date']);
-    }
-
-
-    return $schedule;
+    return $result;
 }
 
 function getPlayerStats($playerName)
@@ -50,15 +42,7 @@ function getPlayerStats($playerName)
                         GROUP BY PlayerName ",
                         mysql_real_escape_string($playerName));
     $result = mysql_query($query);
-    $stats = array();
-
-    while($row = mysql_fetch_array($result))
-    {
-        //echo $row['PlayerName'];
-        array_push($stats, "$row[PlayerName] $row[FG] $row[FGA] $row[FGPercent]");
-    }       
-
-    return $stats;
+    return $result;
 }
 
 function getTeamStandings()
@@ -79,8 +63,26 @@ function getTeamStandings()
     $result = mysql_query($query);
 
     while($row=mysql_fetch_array($result))
-        echo "$row[TeamName]  $row[wins]<br/>";
+        echo "<a href='teaminfo.php?teamName=$row[TeamName]' >$row[TeamName]</a>  $row[wins]<br/>";
     return $result;
     
+}
+
+function getTeamInfo($teamName)
+{
+    $query = sprintf("SELECT * FROM teaminfo WHERE TeamName = '%s'",mysql_real_escape_string($teamName));
+           
+
+    $result = mysql_query($query);
+
+
+    return $result;    
+}
+
+function getPlayersOnTeam($teamName)
+{
+    $query =  sprintf("SELECT Name FROM playerinfo p, teaminfo t WHERE p.TeamAbbv = t.Abbreviation AND t.TeamName='%s'",mysql_real_escape_string($teamName));
+    $result = mysql_query($query);
+    return $result;
 }
 ?>

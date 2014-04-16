@@ -10,16 +10,18 @@
         <title>Home Page</title>
     </head>
     <body>
-        <div class="container">
+       
          <?php 
              include "partial/navigation.html";
          ?>
         
-        <div class="starter-template">
+        <div class="container">
+            <div class="starter-template"></div>
                 <h1>NBA Statistics 2011-2012</h1>
-        <p class="lead">Here is a description of the NBA 2011-2012 statistics website</p>
-      </div>
+                 <p class="lead">Here is a description of the NBA 2011-2012 statistics website</p>
+            </div>
+         </div>
 
-    </div><!-- /.container -->
+
     </body>
 </html>

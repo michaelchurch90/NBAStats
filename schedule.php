@@ -7,11 +7,9 @@ include_once "dbhandler.php";
 <html lang="en">
     <head>
         <?php include "partial/loadlinks.html";?>
-        <meta charset="utf-8" />
-        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script>
             $(document).ready(function () {
-                $("form").submit(function (e) {
+                $("select").change(function (e) {
                     e.preventDefault();
                     $.get("ajax/getschedule.php",  $(this).serialize(),function(r){
                         $("div#output").html(r);
@@ -19,10 +17,12 @@ include_once "dbhandler.php";
                 });
             });
         </script>
+        <meta charset="utf-8" />
+
         <title>Schedule</title>
     </head>
     <body>
-        <div class="container">
+    
         <?php 
             include "partial/navigation.html";
         ?>
@@ -37,7 +37,6 @@ include_once "dbhandler.php";
                         echo "<option>",$team,"</option>";                   
                 ?>
             </select>
-            <input type="submit" class="btn btn-default"value="Get schedule"/>
         </form>
         </div>
 
@@ -45,6 +44,6 @@ include_once "dbhandler.php";
         <div id="output">
 
         </div>
-        </div><!--container-->
+  
     </body>
 </html>

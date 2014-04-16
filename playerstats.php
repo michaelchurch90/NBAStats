@@ -22,25 +22,28 @@ include_once "dbhandler.php";
         <title>Player Stats</title>
     </head>
     <body>
-        <div class="container">
+     
        <?php 
             include "partial/navigation.html";
         ?>
         
         <form>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Player Name"/>
+                <input type="text" name="playername" class="form-control" placeholder="Player Name"/>
+                <input type="submit" class="btn btn-default" value ="Get Stats"/>
             </div>
 
    
-            <input type="submit" class="btn btn-default" value ="Get Stats"/>
+            
         </form>
         
         <!--div for output-->
         <div id="output">
-
+            <?php
+                include("ajax/getplayerstats.php");
+            ?>
         </div>
-
-        </div><!--container-->
+            
+       
     </body>
 </html>

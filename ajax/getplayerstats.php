@@ -1,9 +1,12 @@
 <?php
+if(!isset($_GET['playername']))  
+    die();
+
 include_once "../dbhandler.php";
 
-$stats = getPlayerStats($_GET['playername']);
-foreach($stats  as $player)
-    echo $player."<br/>";
+$result= getPlayerStats($_GET['playername']);
+while($row = mysql_fetch_array($result))
+    echo "$row[PlayerName] $row[FG] $row[FGA] $row[FGPercent] <br/>";
 
 
   
