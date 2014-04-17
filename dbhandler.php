@@ -85,4 +85,16 @@ function getPlayersOnTeam($teamName)
     $result = mysql_query($query);
     return $result;
 }
+
+function getFindPlayer($fgmin,$fgmax,$fgamin,$fgamax)
+{
+    $query = sprintf("SELECT DISTINCT PlayerName 
+                    FROM gameinfo 
+                    WHERE FG BETWEEN %s AND %s  
+                    AND FGA BETWEEN %s AND %s
+                    ORDER BY PlayerName",$fgmin,$fgmax,$fgamin,$fgamax);
+
+    $result = mysql_query($query);
+    return $result;
+}
 ?>
