@@ -27,8 +27,10 @@ include_once "dbhandler.php"
         include "partial/navigation.html";
     ?>
 
-
-
+            <!--div for output-->
+        <div id="output" class="pull-left">
+        </div>
+        <div class="container jumbotron">
             <form role="form" action="ajax/getfindplayer.php" method="get">
             <div class="form2group">
             <div class="form-group">
@@ -130,6 +132,7 @@ include_once "dbhandler.php"
                 <input type="number" name="ptsmax" id="ptsmax" class="form-control number" placeholder="max"/>
             </div>
             </div>
+            <div id="submitsection">
             <div class="form-group searchtyperadio">
                 <label>
                 <input checked type="radio" name="searchtype" id="pergame" value="pergame" />
@@ -148,16 +151,13 @@ include_once "dbhandler.php"
                     Average
                 </label>
             </div>
-            <div class="form-group" id="btnsubmit">
+            <div class="form-group serachtyperadio"><br/><br/>
                 <input type="submit" class="btn btn-default" value ="Find Players"/>
             </div>
-
-   
-            
+            </div> 
         </form>
-        
-        <!--div for output-->
-        <div id="output">
         </div>
+        
+
     </body>
 </html>

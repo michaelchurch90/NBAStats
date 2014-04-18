@@ -16,7 +16,8 @@ div#input select
 }
 div#output
 {
-    margin: 15px;
+    margin: 0px;
+    clear: left;
 }
 label
 {
@@ -25,9 +26,16 @@ label
 
 .form2group
 {
-    margin:15px;
+    margin:10px;
     float: left;
-    width: 100px;
+    width: 80px;
+    
+}
+#submitsection
+{
+    width: 200px;
+    margin: 10px;
+    float: left;
 }
 .searchtyperadio
 {
@@ -35,67 +43,26 @@ label
     margin: 15px;
 }
 
-#btnsubmit
+
+#output h3, #playerinfo h4
 {
-    margin: 15px;
-    clear: left;
-}
-#output h3
-{
-    margin: 10px;
-    
     display: inline;
 }
-/* Colors
-    red:        #F5001D
-    yellow:     #FFCD00
-    blue:       #3016B0
-    dark red:   #9F0013
-    light blue  #402C84
-*/
-/*
-body
-{
-    background-color: #e2e2e2;
-}
 
-ul
-{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow:  hidden;
-    
-}
-a:link, a:visited
-{
-    display: block;
-    width: 192px;
-    font-weight: bold;
-    color: #FFFFFF;
-    background-color: #3016B0;
-    text-align: center;
-    padding: 4px;
-    text-decoration: none;
-}
-
-
-#title
-{
-    margin: 0;
-    padding: 0;
-    background-color: #f00;
-    width: 800px;
-}
-
-a:hover, a:active
-{
-    background-color: #2f71de;
-}
-
-
-li
+.playerinfocontainer
 {
     float: left;
+    margin-right: 30px;
+    margin-top: 10px;
 }
-    */
+
+#playerinfo , #playerlist
+{
+    margin-right: 20px;
+    height: 500px;
+    overflow: auto;
+}
+
+
+
+

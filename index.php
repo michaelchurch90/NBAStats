@@ -15,7 +15,7 @@
              include "partial/navigation.html";
          ?>
         
-        <div class="container">
+        <div class="container jumbotron">
             <div class="starter-template"></div>
                 <h1>NBA Statistics 2011-2012</h1>
                  <p class="lead">Here is a description of the NBA 2011-2012 statistics website</p>

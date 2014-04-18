@@ -1,8 +1,8 @@
 <?php
     
 
-$username = "root";
-$password = "Sports11.";
+$username = "nbauser";
+$password = "nbapassword";
 $hostname= "localhost";
 $con = mysql_connect($hostname,$username,$password)
     or die("Unable to connect to MySQL");
@@ -36,15 +36,51 @@ function getSchedule($teamName)
 
 function getPlayerStats($playerName)
 {
-    $query = sprintf("SELECT PlayerName, SUM(FG) as FG, SUM(FGA)  as FGA, (FG/FGA)*100 as FGPercent
+    $query = sprintf("SELECT PlayerName,
+                             SUM(FG) as FG, 
+                             SUM(FGA)  as FGA, 
+                             (SUM(FG)/SUM(FGA))*100 as FGPercent, 
+                             SUM(3P) as 3P, 
+                             SUM(3PA) as 3PA, 
+                             (SUM(3P)/SUM(3PA))*100 as 3PPercent,
+                             SUM(AST) as AST,
+                             SUM(STL) as STL,
+                             SUM(BLK) as BLK,
+                             SUM(TOV) as TOV,
+                             SUM(PF) as PF,
+                             SUM(PTS) as PTS,
+                             AVG(FG) as FGAVG,
+                             AVG(FGA) as FGAAVG,
+                             (AVG(FG)/AVG(FGA))*100 as FGPercentAVG,
+                             AVG(3P) as 3PAVG,
+                             AVG(3PA) as 3PAAVG,
+                             (AVG(3P)/AVG(3PA))*100 as 3PPercentAVG,
+                             AVG(AST) as ASTAVG,
+                             AVG(STL) as STLAVG,
+                             AVG(BLK) as BLKAVG,
+                             AVG(TOV) as TOVAVG,
+                             AVG(PF) as PFAVG,
+                             AVG(PTS) as PTSAVG
                         FROM gameInfo 
-                        WHERE PlayerName LIKE '%%%s%%' 
+                        WHERE PlayerName ='%s' 
                         GROUP BY PlayerName ",
                         mysql_real_escape_string($playerName));
+
+                        
     $result = mysql_query($query);
     return $result;
 }
 
+function getPlayerList($playerName)
+{
+    $query = sprintf("SELECT Distinct PlayerName
+                        FROM gameInfo 
+                        WHERE PlayerName LIKE '%%%s%%'
+                        ORDER By PlayerName",
+                        mysql_real_escape_string($playerName));
+    $result = mysql_query($query);
+    return $result;    
+}
 function getTeamStandings()
 {
     $query = "SELECT TeamName, COUNT(*) as wins ".
@@ -61,9 +97,10 @@ function getTeamStandings()
            
 
     $result = mysql_query($query);
-
+    echo "<div class='jumbotron container col-md-4'>";
     while($row=mysql_fetch_array($result))
         echo "<a href='teaminfo.php?teamName=$row[TeamName]' >$row[TeamName]</a>  $row[wins]<br/>";
+    echo "</div>";
     return $result;
     
 }

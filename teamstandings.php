@@ -20,7 +20,7 @@ include_once "dbhandler.php"
 
 
         <!-- div for output-->
-        <div id="output">
+        <div id="output" >
             <?php
                 
             getTeamStandings();
