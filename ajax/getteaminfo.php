@@ -2,7 +2,7 @@
 include_once "../dbhandler.php";
 
 if(!isset($_GET['teamName']))
-    die();
+    $_GET['teamName']="Atlanta Hawks";
 ?>
 <div class="col-md-3">
 <h2>Team Info</h2>
@@ -12,14 +12,14 @@ if(!isset($_GET['teamName']))
 
 while($row = mysql_fetch_array($result))
 {
-    echo "<label>Team Name: </label>".$row['TeamName']."<br/>";
-    echo "<label>Abbreviation: </label>".$row['Abbreviation']."<br/>";
-    echo "<label>Location: </label>".$row['Location']."<br/>";
-    echo "<label>Division: </label>".$row['Division']."<br/>";
-    echo "<label>Coach: </label>".$row['Coach']."<br/>";
-    echo "<label>Stadium: </label>".$row['Stadium']."<br/>";
-    echo "<label>Founded: </label>".$row['Year']."<br/>";
-    echo "<label>Championships: </label>".$row['Championships']."<br/>";
+    echo "<h3>Team Name: </h3>".$row['TeamName']."<br/>";
+    echo "<h3>Abbreviation: </h4>  ".$row['Abbreviation']."<br/>";
+    echo "<h3>Location: </h3>".$row['Location']."<br/>";
+    echo "<h3>Division: </h3>".$row['Division']."<br/>";
+    echo "<h3>Coach: </h3>".$row['Coach']."<br/>";
+    echo "<h3>Stadium: </h3>".$row['Stadium']."<br/>";
+    echo "<h3>Founded: </h3>".$row['Year']."<br/>";
+    echo "<h3>Championships: </h3>".$row['Championships']."<br/>";
 }
 
 ?>

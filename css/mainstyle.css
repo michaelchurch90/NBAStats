@@ -8,18 +8,44 @@ body {
 }
 div#input
 {
-   width: 400px; 
+   margin: 15px;
+}
+div#input select
+{
+    width: 300px;
+}
+div#output
+{
+    margin: 15px;
 }
 label
 {
     float: left;
 }
 
-.number
+.form2group
 {
-    width: 5px;
+    margin:15px;
+    float: left;
+    width: 100px;
+}
+.searchtyperadio
+{
+    clear: left;
+    margin: 15px;
 }
 
+#btnsubmit
+{
+    margin: 15px;
+    clear: left;
+}
+#output h3
+{
+    margin: 10px;
+    
+    display: inline;
+}
 /* Colors
     red:        #F5001D
     yellow:     #FFCD00

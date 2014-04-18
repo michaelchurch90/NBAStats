@@ -26,16 +26,19 @@ include_once "dbhandler.php";
        <?php 
             include "partial/navigation.html";
         ?>
-        
+        <div id="input">
         <form>
             <div class="input-group">
                 <input type="text" name="playername" class="form-control" placeholder="Player Name"/>
+            </div>
+            <div class="input-group">
                 <input type="submit" class="btn btn-default" value ="Get Stats"/>
             </div>
 
    
             
         </form>
+        </div>
         
         <!--div for output-->
         <div id="output">
