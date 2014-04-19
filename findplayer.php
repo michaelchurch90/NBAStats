@@ -28,9 +28,9 @@ include_once "dbhandler.php"
     ?>
 
             <!--div for output-->
-        <div id="output" class="pull-left">
+        <div id="output" class="container">
         </div>
-        <div class="container jumbotron">
+        <div id="input123" class="container jumbotron">
             <form role="form" action="ajax/getfindplayer.php" method="get">
             <div class="form2group">
             <div class="form-group">

@@ -37,7 +37,7 @@ include_once "dbhandler.php";
        <?php 
             include "partial/navigation.html";
         ?>
-        <div id="input" class="container jumbotron col-md-4">
+        <div id="input" class="container jumbotron ">
         <form role="form" class="form-inline">
             <div class="form-group">
                 <input type="text" name="playername" class="form-control" placeholder="Player Name"/>
@@ -52,7 +52,7 @@ include_once "dbhandler.php";
         </div>
         
         <!--div for output-->
-        <div id="output" class="container">
+        <div id="output" class="container ">
        
                 <?php
                 include("ajax/getplayerinfo.php");

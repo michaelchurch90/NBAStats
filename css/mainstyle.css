@@ -6,24 +6,17 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
-div#input
-{
-   margin: 15px;
-}
+
 div#input select
 {
     width: 300px;
 }
+
 div#output
 {
-    margin: 0px;
     clear: left;
+    padding-left: 0px;
 }
-label
-{
-    float: left;
-}
-
 .form2group
 {
     margin:10px;
@@ -63,6 +56,9 @@ label
     overflow: auto;
 }
 
-
+.container
+{
+    margin-top: 10px;
+}
 
 
