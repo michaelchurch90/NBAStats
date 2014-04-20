@@ -20,11 +20,10 @@ include_once "dbhandler.php"
 
 
         <!-- div for output-->
-        <div id="output" >
-            <?php
-                
+        <div id="input" class="container jumbotron" >
+            <h1>Team Standings</h1>
+            <?php         
             getTeamStandings();
-
             ?>
         </div>
          

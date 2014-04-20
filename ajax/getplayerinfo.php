@@ -4,6 +4,7 @@ include_once "../dbhandler.php";
 if(!isset($_GET['playername']))
     die();
 
+
 $result = getPlayerStats($_GET['playername']);
 
 echo "<div id='playerinfo' class='container jumbotron col-md-5 mycontainer'>";

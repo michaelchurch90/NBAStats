@@ -89,13 +89,14 @@ elseif($_GET['searchtype']=='total')
 elseif($_GET['searchtype']=='average')
     $result = getFindPlayerAverage($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax);
 
-
+echo "<div id='playerlist' class='container jumbotron col-md-3'>";
 echo "<h4>Players</h4>";
 while($row=mysql_fetch_array($result))
 
 {
     echo "<a href='playerstats.php?playername=$row[PlayerName]'>$row[PlayerName]</a><br/>";
 }
+echo "</div>";
 
   
 ?>

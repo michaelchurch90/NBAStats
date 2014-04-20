@@ -27,7 +27,7 @@ include_once "dbhandler.php"
         include "partial/navigation.html";
     ?>
 
- <div class="frm-group" id="input">
+ <div class="frm-group container" id="input">
         <form action="ajax/getteaminfo.php" method="get">
 
             
@@ -41,7 +41,7 @@ include_once "dbhandler.php"
         </form>
 </div>
 
-<div id="output">
+<div id="output" class="container">
  <?php
     include "ajax/getteaminfo.php";
 ?>

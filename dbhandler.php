@@ -99,10 +99,10 @@ function getTeamStandings()
            
 
     $result = mysql_query($query);
-    echo "<div class='jumbotron container col-md-4'>";
+    echo "<ol>";
     while($row=mysql_fetch_array($result))
-        echo "<a href='teaminfo.php?teamName=$row[TeamName]' >$row[TeamName]</a>  $row[wins]<br/>";
-    echo "</div>";
+        echo "<li><a href='teaminfo.php?teamName=$row[TeamName]' >$row[TeamName]</a>  ($row[wins] wins)</li>";
+    echo "</ol>";
     return $result;
     
 }
