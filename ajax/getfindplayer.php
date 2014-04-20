@@ -1,6 +1,13 @@
 <?php
 include_once "../dbhandler.php";
 
+$trbmin= mysql_real_escape_string($_GET['trbmin']);
+$trbmax= mysql_real_escape_string($_GET['trbmax']);
+$orbmin= mysql_real_escape_string($_GET['orbmin']);
+$orbmax= mysql_real_escape_string($_GET['orbmax']);
+$drbmin= mysql_real_escape_string($_GET['drbmin']);
+$drbmax= mysql_real_escape_string($_GET['drbmax']);
+
 $fgmin= mysql_real_escape_string($_GET['fgmin']);
 $fgmax= mysql_real_escape_string($_GET['fgmax']);
 $fgamin= mysql_real_escape_string($_GET['fgamin']);
@@ -22,7 +29,18 @@ $pfmax= mysql_real_escape_string($_GET['pfmax']);
 $ptsmin= mysql_real_escape_string($_GET['ptsmin']);
 $ptsmax= mysql_real_escape_string($_GET['ptsmax']);
 
-
+if($trbmin==null)
+    $trbmin=0;
+if($trbmax==null)
+    $trbmax=10000;
+if($orbmin==null)
+    $orbmin=0;
+if($orbmax==null)
+    $orbmax=10000;
+if($drbmin==null)
+    $drbmin=0;
+if($drbmax==null)
+    $drbmax=10000;
 if($fgmin==null)
     $fgmin=0;
 if($fgmax==null)
@@ -65,11 +83,11 @@ if($ptsmax==null)
     $ptsmax=10000;
 
 if($_GET['searchtype']=='pergame')
-    $result = getFindPlayer($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax);
+    $result = getFindPlayer($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax);
 elseif($_GET['searchtype']=='total')
-    $result = getFindPlayerTotal($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax);
+    $result = getFindPlayerTotal($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax);
 elseif($_GET['searchtype']=='average')
-    $result = getFindPlayerAverage($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax);
+    $result = getFindPlayerAverage($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax);
 
 
 echo "<h4>Players</h4>";

@@ -49,6 +49,8 @@ function getPlayerStats($playerName)
                              SUM(TOV) as TOV,
                              SUM(PF) as PF,
                              SUM(PTS) as PTS,
+                             SUM(((IF(PTS>10,1,0) + IF(BLK>10,1,0)+ IF(TRB>10,1,0)+ IF(AST>10,1,0)+IF(STL>10,1,0))>=2)) AS DDBL, 
+                             SUM(((IF(PTS>10,1,0) + IF(BLK>10,1,0)+ IF(TRB>10,1,0)+ IF(AST>10,1,0)+IF(STL>10,1,0))>=3)) AS TDBL,
                              AVG(FG) as FGAVG,
                              AVG(FGA) as FGAAVG,
                              (AVG(FG)/AVG(FGA))*100 as FGPercentAVG,
@@ -123,7 +125,7 @@ function getPlayersOnTeam($teamName)
     return $result;
 }
 
-function getFindPlayer($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax)
+function getFindPlayer($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax)
 {
     $query = sprintf("SELECT DISTINCT PlayerName 
                     FROM gameinfo 
@@ -137,14 +139,17 @@ function getFindPlayer($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$thre
                     AND TOV BETWEEN %s AND %s
                     AND PF BETWEEN %s AND %s
                     AND PTS BETWEEN %s AND %s
+                    AND TRB BETWEEN %s AND %s
+                    AND ORB BETWEEN %s AND %s
+                    AND ORB BETWEEN %s AND %s
                     ORDER BY PlayerName",
-                    $fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax);
+                    $fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax);
     //echo $query;
     $result = mysql_query($query);
     return $result;
 }
 
-function getFindPlayerTotal($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax)
+function getFindPlayerTotal($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax)
 {
     $query = sprintf("SELECT PlayerName 
                     FROM gameinfo
@@ -159,13 +164,16 @@ function getFindPlayerTotal($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,
                     AND SUM(TOV) BETWEEN %s AND %s
                     AND SUM(PF) BETWEEN %s AND %s
                     AND SUM(PTS) BETWEEN %s AND %s
+                    AND SUM(TRB) BETWEEN %s AND %s
+                    AND SUM(ORB) BETWEEN %s AND %s
+                    AND SUM(DRB) BETWEEN %s AND %s
                     ORDER BY PlayerName",
-                    $fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax);
+                    $fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax);
     //echo $query;
     $result = mysql_query($query);
     return $result;
 }
-function getFindPlayerAverage($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax)
+function getFindPlayerAverage($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax)
 {
     $query = sprintf("SELECT PlayerName 
                     FROM gameinfo
@@ -180,8 +188,11 @@ function getFindPlayerAverage($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepma
                     AND AVG(TOV) BETWEEN %s AND %s
                     AND AVG(PF) BETWEEN %s AND %s
                     AND AVG(PTS) BETWEEN %s AND %s
+                    AND AVG(TRB) BETWEEN %s AND %s
+                    AND AVG(ORB) BETWEEN %s AND %s
+                    AND AVG(DRB) BETWEEN %s AND %s
                     ORDER BY PlayerName",
-                    $fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax);
+                    $fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax);
     //echo $query;
     $result = mysql_query($query);
     return $result;

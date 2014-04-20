@@ -91,6 +91,39 @@ include_once "dbhandler.php"
                 <label class="sr-only" for="stlmax">STL</label>
                 <input type="number" name="stlmax" id="stlmax" class="form-control number" placeholder="max"/>
             </div>
+            
+            </div>
+            <div class="form2group">
+            <div class="form-group">
+                <label for="orbmin">ORB</label>
+                <input type="number" id="orbmin" name="orbmin" class="form-control number" placeholder="min"/>
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="orbmax">ORB</label>
+                <input type="number" name="orbmax" id="orbmax" class="form-control number" placeholder="max"/>
+            </div>
+            
+            </div>
+            <div class="form2group">
+            <div class="form-group">
+                <label for="drbmin">DRB</label>
+                <input type="number" id="drbmin" name="drbmin" class="form-control number" placeholder="min"/>
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="drbmax">DRB</label>
+                <input type="number" name="drbmax" id="drbmax" class="form-control number" placeholder="max"/>
+            </div>
+
+                </div>
+            <div class="form2group">
+            <div class="form-group">
+                <label for="trbmin">TRB</label>
+                <input type="number" id="trbmin" name="trbmin" class="form-control number" placeholder="min"/>
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="trbmax">TRB</label>
+                <input type="number" name="trbmax" id="trbmax" class="form-control number" placeholder="max"/>
+            </div>
             </div>
             <div class="form2group">
             <div class="form-group">
@@ -141,14 +174,14 @@ include_once "dbhandler.php"
             </div>
             <div class="form-group searchtyperadio">
                 <label>
-                <input type="radio" name="searchtype" id="total" value="total"/>
-                    In all games
-                </label>
-            </div>
-            <div class="form-group searchtyperadio">
-                <label>
                 <input type="radio" name="searchtype" id="average" value="average"/>
                     Average
+                </label>
+            </div>
+                            <div class="form-group searchtyperadio">
+                <label>
+                <input type="radio" name="searchtype" id="total" value="total"/>
+                    Total
                 </label>
             </div>
             <div class="form-group serachtyperadio"><br/><br/>

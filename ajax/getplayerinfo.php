@@ -24,6 +24,8 @@ while($row = mysql_fetch_array($result))
     echo "<h4>TOV: </h4>".$row['TOV']."<br/>";
     echo "<h4>PF: </h4>".$row['PF']."<br/>";
     echo "<h4>PTS: </h4>".$row['PTS']."<br/>";
+    echo "<h4>Double Double: </h4>".$row['DDBL']."<br/>";
+    echo "<h4>Triple Double: </h4>".$row['TDBL']."<br/>";
     echo "</div>";
     echo "<div class='playerinfocontainer'>";
     echo "<h3>Average</h3><br/>";
