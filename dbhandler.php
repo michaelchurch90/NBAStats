@@ -33,7 +33,12 @@ function getSchedule($teamName)
     $result = mysql_query($query);
     return $result;
 }
-
+function getScheduleByDate($begindate, $enddate)
+{
+    $query = sprintf("SELECT * FROM schedule WHERE Date BETWEEN '%s' AND '%s' ORDER BY Date", mysql_real_escape_string($begindate),mysql_real_escape_string($enddate));
+    $result = mysql_query($query);
+    return $result;
+}
 function getPlayerStats($playerName)
 {
     $query = sprintf("SELECT PlayerName,

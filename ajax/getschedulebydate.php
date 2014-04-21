@@ -1,9 +1,9 @@
 <?php
 include_once "../dbhandler.php";
+echo $_GET['dates'];
+$result= getScheduleByDate($_GET['begindate'],$_GET['enddate']);
 
-$result= getSchedule($_GET['teamName']);
-
-echo "<div class='panel panel-default'>";
+echo "<div class='panel panel-default container'>";
 echo "<table class='table'>";
 echo "<tr><th>Date</th><th>Visitor</th><th>Visitor Points</th><th>Home</th><th>Home Points</th></tr>";
 
@@ -19,5 +19,4 @@ while($row = mysql_fetch_array($result))
 }
 echo "</table>";
 echo "</div>";
-
 ?>

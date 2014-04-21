@@ -34,14 +34,26 @@ while($row=mysql_fetch_array($result))
     echo "<a href='playerstats.php?playername=$row[Name]'>$row[Name]</a><br/>";
 ?>
 </div>
-<div class="col-md-5">
+<div class="col-md-6">
 <h2>Schedule</h2>
     <?php
         $result= getSchedule($_GET['teamName']);
 
+echo "<div class='panel panel-default'>";
+echo "<table class='table'>";
+echo "<tr><th>Date</th><th>Visitor</th><th>Visitor Points</th><th>Home</th><th>Home Points</th></tr>";
+
+$prevdate = NULL;
 while($row = mysql_fetch_array($result))
 {
-    echo "$row[Date]      $row[Visitor]    vs    $row[Home]<br/>";
+    if($row['Date']==$prevdate)
+        $row['Date']="";
+    else
+        $prevdate=$row['Date'];
+        
+    echo "<tr><td>$row[Date]</td><td><a href='../teaminfo.php?teamName=$row[Visitor]'>$row[Visitor]</a></td><td>$row[VisitorPts]</td><td><a href='../teaminfo.php?teamName=$row[Home]'>$row[Home]</a></td><td>$row[HomePts]</td></tr>";
 }
+echo "</table>";
+echo "</div>";
     ?>
 </div>

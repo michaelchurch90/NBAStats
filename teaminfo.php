@@ -35,13 +35,18 @@ include_once "dbhandler.php"
                 <?php
                     $teams = getTeamNames();
                     foreach($teams as $team)
-                        echo "<option>",$team,"</option>";                   
+                    {
+                        if($team==$_GET['teamName'])
+                        echo "<option selected>",$team,"</option>";
+                        else
+                        echo "<option>",$team,"</option>";  
+                     }                 
                 ?>
             </select>
         </form>
 </div>
 
-<div id="output" class="container">
+<div id="output" class="container jumbotron">
  <?php
     include "ajax/getteaminfo.php";
 ?>

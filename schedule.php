@@ -9,9 +9,9 @@ include_once "dbhandler.php";
         <?php include "partial/loadlinks.html";?>
         <script>
             $(document).ready(function () {
-                $("select").change(function (e) {
+                $("form").submit(function (e) {
                     e.preventDefault();
-                    $.get("ajax/getschedule.php",  $(this).serialize(),function(r){
+                    $.get("ajax/getschedulebydate.php",  $(this).serialize(),function(r){
                         $("div#output").html(r);
                     });
                 });
@@ -26,22 +26,18 @@ include_once "dbhandler.php";
         <?php 
             include "partial/navigation.html";
         ?>
-        <div class="frm-group" id="input">
-        <form action="ajax/getschedule.php" method="get">
-
+        <div class="frm-group container" id="input">
+        <form action="ajax/getschedulebydate.php" method="get">
+        <input type="date" name="begindate" value="2011-01-01"/>
+        <input type="date" name="enddate" value="2012-12-31" />
+        <input type="submit" value="Search"/>
             
-            <select class="form-control" name="teamName">
-                <?php
-                    $teams = getTeamNames();
-                    foreach($teams as $team)
-                        echo "<option>",$team,"</option>";                   
-                ?>
-            </select>
+
         </form>
         </div>
 
         <!--div for output-->
-        <div id="output">
+        <div id="output" class="container">
 
         </div>
   
