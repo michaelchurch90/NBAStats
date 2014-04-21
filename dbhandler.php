@@ -125,8 +125,9 @@ function getPlayersOnTeam($teamName)
     return $result;
 }
 
-function getFindPlayer($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax)
+function getFindPlayer($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax, $ddblmin,$ddblmax,$tdblmin,$tdblmax)
 {
+       
     $query = sprintf("SELECT DISTINCT PlayerName 
                     FROM gameinfo 
                     WHERE FG BETWEEN %s AND %s  
@@ -142,14 +143,16 @@ function getFindPlayer($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$thre
                     AND TRB BETWEEN %s AND %s
                     AND ORB BETWEEN %s AND %s
                     AND ORB BETWEEN %s AND %s
+                    AND ((IF(PTS>10,1,0)+IF(BLK>10,1,0)+IF(TRB>10,1,0)+IF(AST>10,1,0)+IF(STL>10,1,0))>=2)  BETWEEN %s AND %s
+                    AND ((IF(PTS>10,1,0)+IF(BLK>10,1,0)+IF(TRB>10,1,0)+IF(AST>10,1,0)+IF(STL>10,1,0))>=3)  BETWEEN %s AND %s
                     ORDER BY PlayerName",
-                    $fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax);
-    //echo $query;
+                    $fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax, $ddblmin,$ddblmax,$tdblmin,$tdblmax);
+
     $result = mysql_query($query);
     return $result;
 }
 
-function getFindPlayerTotal($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax)
+function getFindPlayerTotal($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax, $ddblmin,$ddblmax,$tdblmin,$tdblmax)
 {
     $query = sprintf("SELECT PlayerName 
                     FROM gameinfo
@@ -167,6 +170,8 @@ function getFindPlayerTotal($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,
                     AND SUM(TRB) BETWEEN %s AND %s
                     AND SUM(ORB) BETWEEN %s AND %s
                     AND SUM(DRB) BETWEEN %s AND %s
+                    AND SUM((IF(PTS>10,1,0)+IF(BLK>10,1,0)+IF(TRB>10,1,0)+IF(AST>10,1,0)+IF(STL>10,1,0))>=2)  BETWEEN %s AND %s
+                    AND SUM((IF(PTS>10,1,0)+IF(BLK>10,1,0)+IF(TRB>10,1,0)+IF(AST>10,1,0)+IF(STL>10,1,0))>=3)  BETWEEN %s AND %s
                     ORDER BY PlayerName",
                     $fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax);
     //echo $query;

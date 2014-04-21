@@ -28,9 +28,9 @@ include_once "dbhandler.php"
     ?>
 
             <!--div for output-->
-        <div id="output" class="container">
+        <div id="output"  >
         </div>
-        <div id="input123" class="container jumbotron">
+        <div id="input123" class="container col-md-8 jumbotron">
             <form role="form" action="ajax/getfindplayer.php" method="get">
             <div class="form2group">
             <div class="form-group">
@@ -163,6 +163,26 @@ include_once "dbhandler.php"
             <div class="form-group">
                 <label class="sr-only" for="ptsmax">PTS</label>
                 <input type="number" name="ptsmax" id="ptsmax" class="form-control number" placeholder="max"/>
+            </div>
+            </div>
+            <div class="form2group">
+            <div class="form-group">
+                <label for="ddblmin">Double Double</label>
+                <input type="number" id="ddblmin" name="ddblmin" class="form-control number" placeholder="min"/>
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="ddblmax">Double Double</label>
+                <input type="number" name="ddblmax" id="ddblmax" class="form-control number" placeholder="max"/>
+            </div>
+            </div>
+            <div class="form2group">
+            <div class="form-group">
+                <label for="tdbl">Triple Double</label>
+                <input type="number" id="tdblmin" name="tdblmin" class="form-control number" placeholder="min"/>
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="tdblmax">Triple Double</label>
+                <input type="number" name="tdblmax" id="tdblmax" class="form-control number" placeholder="max"/>
             </div>
             </div>
             <div id="submitsection">

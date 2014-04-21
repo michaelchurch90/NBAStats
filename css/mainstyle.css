@@ -49,11 +49,18 @@ div#output
     margin-top: 10px;
 }
 
-#playerinfo , #playerlist
+#playerinfo , #playerlist,.playerinfo
 {
     margin-right: 20px;
     height: 500px;
     overflow: auto;
+}
+.playerinfo
+{
+    margin:20px;
+    height: 500px;
+    overflow: auto;
+
 }
 
 .container
