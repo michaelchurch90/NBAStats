@@ -18,7 +18,7 @@
         <div class="container jumbotron">
             <div class="starter-template"></div>
                 <h1>NBA Statistics 2011-2012</h1>
-                 <p class="lead">Here is a description of the NBA 2011-2012 statistics website</p>
+                 <p class="lead">Search for information from the 2011-2012 season</p>
             </div>
          </div>
 

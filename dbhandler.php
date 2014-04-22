@@ -152,7 +152,7 @@ function getFindPlayer($fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$thre
                     AND ((IF(PTS>10,1,0)+IF(BLK>10,1,0)+IF(TRB>10,1,0)+IF(AST>10,1,0)+IF(STL>10,1,0))>=3)  BETWEEN %s AND %s
                     ORDER BY PlayerName",
                     $fgmin,$fgmax,$fgamin,$fgamax,$threepmin,$threepmax,$threepamin,$threepamax,$astmin,$astmax,$stlmin,$stlmax,$blkmin,$blkmax,$tovmin,$tovmax,$pfmin,$pfmax,$ptsmin,$ptsmax,$trbmin,$trbmax,$orbmin,$orbmax,$drbmin,$drbmax, $ddblmin,$ddblmax,$tdblmin,$tdblmax);
-
+    echo $query;
     $result = mysql_query($query);
     return $result;
 }
